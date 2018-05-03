@@ -67,6 +67,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -76,20 +80,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BtIndex.html" />
     <Content Include="Css\amazeui.css" />
     <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\ratchet.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="image\banner\424213.jpg" />
+    <Content Include="image\banner\7730-1502041T520.jpg" />
+    <Content Include="image\banner\低俗小说.jpg" />
     <Content Include="image\information_balloon_32px_562796_easyicon.net.png" />
     <Content Include="image\个人图片.PNG" />
     <Content Include="Javascript\amazeui.min.js" />
     <Content Include="Javascript\bootstrap.js" />
     <Content Include="Javascript\jquery.min.js" />
+    <Content Include="Javascript\ratchet.js" />
+    <Content Include="Javascript\ratchet.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\DbHelperSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
