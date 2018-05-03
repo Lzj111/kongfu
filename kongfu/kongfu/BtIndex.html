@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/ratchet.css" rel="stylesheet" />
+    <script src="Javascript/ratchet.js"></script>
+    <script src="Javascript/jquery.min.js"></script>
+    <script src="Javascript/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/push.js/1.0.5/push.min.js"></script>
+    <script type="text/javascript">
+        function DrawImage(hotimg) {
+            $(hotimg).jqthumb({
+                classname: 'jqthumb',
+                width: '100%',
+                height: '300px',
+                position: { y: '50%', x: '50%' },
+                zoom: '1',
+                method: 'auto',
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <!--<header class="bar bar-nav">
+        <h1 class="title">Ratchet</h1>
+    </header>-->
+
+    
+
+    <div class="content">
+        <div class="bs-example" data-example-id="carousel-with-captions">
+            <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
+                    <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
+                    <li data-target="#carousel-example-captions" data-slide-to="2" class="active"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item">
+                        <img data-src="holder.js/900x500/auto/#777:#777" alt="900x500" src="image/banner/低俗小说.jpg" data-holder-rendered="true">
+                        <div class="carousel-caption">
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div>
+                    </div>
+                    <div class="item active left">
+                        <img data-src="holder.js/900x500/auto/#666:#666" alt="900x500" src="image/banner/424213.jpg" data-holder-rendered="true">
+                        <div class="carousel-caption">
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="item next left">
+                        <img data-src="holder.js/900x500/auto/#555:#555" alt="900x500" src="image/banner/7730-1502041T520.jpg" data-holder-rendered="true">
+                        <div class="carousel-caption">
+                            <h3>Third slide label</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    <a class="push-right" href="http://goratchet.com">
+                        <strong>Ratchet documentation</strong>
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="push-right" href="https://github.com/twbs/ratchet/">
+                        <strong>Ratchet on Github</strong>
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="push-right" href="https://groups.google.com/forum/#!forum/goratchet">
+                        <strong>Ratchet Google group</strong>
+                    </a>
+                </li>
+                <li class="table-view-cell">
+                    <a class="push-right" href="https://twitter.com/goratchet">
+                        <strong>Ratchet on Twitter</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item active" href="#">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">主页</span>
+        </a>
+        <a class="tab-item" href="#">
+            <span class="icon icon-star-filled"></span>
+            <span class="tab-label">任务</span>
+        </a>
+        <a class="tab-item" href="#">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">我的</span>
+        </a>
+    </nav>
+</body>
+</html>
