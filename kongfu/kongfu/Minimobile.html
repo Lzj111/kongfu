@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Css/miniMobile.css" rel="stylesheet" />
+    <link href="Css/iconfont.css" rel="stylesheet" />
+    <script src="Javascript/minimobile/zepto.min.js"></script>
+    <script src="Javascript/minimobile/miniMobile.js"></script>
+    <script src="Javascript/minimobile/flexible.min.js"></script>
+
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>
+
+    <!-- animate.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+
+
+
+</head>
+<body>
+    <header class="ui-header clearfix w75 h8 f46 pl3 pr3 color8 bg-color-success t-c">
+        <div class="ui-header-l fl w5">
+            <b class="icon iconfont icon-sortlight"></b>
+        </div>
+        <div class="ui-header-c fl f30 w59">
+            标题内容
+        </div>
+        <div class="ui-header-r fr w5">
+            <i class="icon iconfont icon-phone"></i>
+        </div>
+    </header>
+    <section class="swiper-container h40 swiper-container-horizontal">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-750px, 0px, 0px);">
+            <div class="swiper-slide" style="width: 375px;">
+            <img src="image/banner/banner2.jpg" class="w75 h40">
+            </div>
+            <div class="swiper-slide swiper-slide-prev" style="width: 375px;"><img src="image/banner/banner2.jpg" class="w75 h40"></div>
+            <div class="swiper-slide swiper-slide-active" style="width: 375px;"><img src="image/banner/banner3.jpg" class="w75 h40"></div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next swiper-button-disabled"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+    </section>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            }
+        });
+    </script>
+    <style>
+        .swiper-button-next,
+        .swiper-button-prev {
+            /*swiper 默认图标适应性较差，使用rem单位规定左右按钮大小，图标大小*/
+            width: 0.3rem !important;
+            height: 0.5rem !important;
+            background-size: cover !important;
+            margin-top: -0.23rem !important;
+        }
+    </style>
+
+</body>
+</html>
