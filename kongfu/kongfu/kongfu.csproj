@@ -94,6 +94,8 @@
     <Content Include="image\banner\banner3.jpg" />
     <Content Include="image\banner\低俗小说.jpg" />
     <Content Include="image\information_balloon_32px_562796_easyicon.net.png" />
+    <Content Include="image\wb\wb_cat.jpg" />
+    <Content Include="image\wb\wb_pai.jpeg" />
     <Content Include="image\个人图片.PNG" />
     <Content Include="Javascript\amazeui.min.js" />
     <Content Include="Javascript\bootstrap.js" />
