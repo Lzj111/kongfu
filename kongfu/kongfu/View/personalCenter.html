@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link href="../Css/Lib/bootstrap.css" rel="stylesheet" />
+    <script src="../Javascript/Lib/jquery.min.js"></script>
+    <script src="../Javascript/Lib/angular.min.js"></script>
+    <script src="../Javascript/Lib/bootstrap.js"></script>
+    <script src="../Javascript/personalCenter/personalCenter.js"></script>
+    <link href="../Css/personalCenter/personalCenter.css" rel="stylesheet" />
+
+</head>
+<body ng-app="kongFu">
+    <div ng-controller="personalCenterCtrl">
+        <!--头部-->
+        <div id="header">
+            <div class="header-top">
+                <a class="header-top-setting">设置</a>
+                <img class="header-top-message" src="../image/information_balloon_32px_562796_easyicon.net.png" />
+            </div>
+            <div class="header-content">
+                <img class="content-face" src="{{pageParameter.faceImg}}" />
+                <div class="content-fill">
+                    <label class="content-username">{{pageParameter.userName}}</label>
+                    <span class="content-usedetail">
+                        <label>邀请码：</label><label>{{pageParameter.userId}}</label><a ng-click="copyNo()">复制</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!--中间内容-->
+        <div id="content">
+            <div class="content-money">
+                <span>
+                    <label>总佣金:{{pageParameter.sumCommission}}元</label>
+                    <label>可提现佣金:{{pageParameter.canWithdraw}}元</label>
+                </span>
+                <span ng-click="withDraw()">提现</span>
+            </div>
+            <div class="content-agency">
+                <p>总代理:{{pageParameter.agencyCount}}人</p>
+                <div>
+                    <dl><dt>一级代理/推荐</dt><dd>{{pageParameter.oneAgency}}人</dd></dl>
+                    <dl><dt>二级代理/推荐</dt><dd>{{pageParameter.twoAgency}}人</dd></dl>
+                    <dl><dt>三级代理/推荐</dt><dd>{{pageParameter.threeAgency}}人</dd></dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="order">
+            <div ng-repeat="item in pageParameter.orderList" ng-click="orderClick(item.type)">
+                {{item.name}}
+            </div>
+        </div>
+
+        <div id="bottom">
+
+        </div>
+    </div>
+</body>
+</html>

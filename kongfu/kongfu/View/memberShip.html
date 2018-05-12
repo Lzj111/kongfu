@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>申请会员</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../Javascript/Lib/jquery.min.js"></script>
+    <script src="../Javascript/Lib/angular.min.js"></script>
+    <script src="../Javascript/personalCenter/memberShip.js"></script>
+    <link href="../Css/Lib/bootstrap.css" rel="stylesheet" />
+    <link href="../Css/personalCenter/memberShip.css" rel="stylesheet" />
+</head>
+<body ng-app="memberShip">
+    <div id="memberShip" ng-controller="memberShipCtrl">
+        <div id="tops">申请代理</div>
+        <div id="show-img"><img src="../image/zhanshi.png" /></div>
+        <div id="head-detail">
+            <div class="header-cont">
+                <img class="header-face" src="{{pageParameter.faceImg}}" />
+                <span>昵称:<label>{{pageParameter.userName}}</label></span>
+                <span>会员ID:<label>{{pageParameter.userId}}</label></span>
+            </div>
+            <div class="recharge">
+                <div></div>充值会员
+            </div>
+            <div class="pay-button">
+                <div>高配版&nbsp;&nbsp;&nbsp;¥{{pageParameter.payMoney}}</div>
+                <div><input type="radio" checked="checked"/>&nbsp;我已经阅读并完全同意<span>《系统在线使用服务协议》</span></div>
+            </div>
+        </div>
+        <div class="pay-submit" ng-click="payNow()">微信支付</div>
+        <div class="message">注: 此费用为软件使用费，不是充值费用</div>
+    </div>
+</body>
+</html>
