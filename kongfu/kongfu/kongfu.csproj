@@ -88,6 +88,10 @@
     <Content Include="Css\ratchet.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="image\Article\1.jpg" />
+    <Content Include="image\Article\2.jpg" />
+    <Content Include="image\Article\3.jpg" />
+    <Content Include="image\Article\4.jpg" />
     <Content Include="image\banner\424213.jpg" />
     <Content Include="image\banner\7730-1502041T520.jpg" />
     <Content Include="image\banner\banner2.jpg" />
