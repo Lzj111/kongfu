@@ -68,7 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\iconfont.css" />
+    <Content Include="Css\Lib\amazeui.css" />
+    <Content Include="Css\Lib\bootstrap.css" />
+    <Content Include="Css\Lib\ratchet.css" />
     <Content Include="Css\miniMobile.css" />
+    <Content Include="Css\personalCenter\memberShip.css" />
+    <Content Include="Css\personalCenter\personalCenter.css" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -104,12 +109,22 @@
     <Content Include="Javascript\amazeui.min.js" />
     <Content Include="Javascript\bootstrap.js" />
     <Content Include="Javascript\jquery.min.js" />
+    <Content Include="Javascript\Lib\amazeui.min.js" />
+    <Content Include="Javascript\Lib\angular.min.js" />
+    <Content Include="Javascript\Lib\bootstrap.js" />
+    <Content Include="Javascript\Lib\jquery.min.js" />
+    <Content Include="Javascript\Lib\ratchet.js" />
+    <Content Include="Javascript\Lib\ratchet.min.js" />
     <Content Include="Javascript\minimobile\flexible.min.js" />
     <Content Include="Javascript\minimobile\miniMobile.js" />
     <Content Include="Javascript\minimobile\zepto.min.js" />
+    <Content Include="Javascript\personalCenter\memberShip.js" />
+    <Content Include="Javascript\personalCenter\personalCenter.js" />
     <Content Include="Javascript\ratchet.js" />
     <Content Include="Javascript\ratchet.min.js" />
     <Content Include="Minimobile.html" />
+    <Content Include="View\memberShip.html" />
+    <Content Include="View\personalCenter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
