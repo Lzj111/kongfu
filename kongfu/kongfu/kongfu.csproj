@@ -80,6 +80,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
+    <Content Include="Javascript\minimobile\mobileSelect.js" />
+    <Content Include="Javascript\select-miniMobile.js" />
     <Content Include="View\JobInfo.html" />
     <Content Include="View\Web.config" />
     <None Include="View\Web.Debug.config">
