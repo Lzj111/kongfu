@@ -72,6 +72,7 @@
     <Content Include="Css\Lib\bootstrap.css" />
     <Content Include="Css\Lib\ratchet.css" />
     <Content Include="Css\miniMobile.css" />
+    <Content Include="Css\mobileSelect.css" />
     <Content Include="Css\personalCenter\memberShip.css" />
     <Content Include="Css\personalCenter\personalCenter.css" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -79,6 +80,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
+    <Content Include="View\JobInfo.html" />
+    <Content Include="View\Web.config" />
+    <None Include="View\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="View\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -103,6 +112,7 @@
     <Content Include="image\banner\banner3.jpg" />
     <Content Include="image\banner\低俗小说.jpg" />
     <Content Include="image\information_balloon_32px_562796_easyicon.net.png" />
+    <Content Include="image\type.jpg" />
     <Content Include="image\wb\wb_cat.jpg" />
     <Content Include="image\wb\wb_pai.jpeg" />
     <Content Include="image\个人图片.PNG" />
@@ -123,6 +133,8 @@
     <Content Include="Javascript\ratchet.js" />
     <Content Include="Javascript\ratchet.min.js" />
     <Content Include="Minimobile.html" />
+    <Content Include="View\PartTimeJob.html" />
+    <Content Include="View\PartTimeType.html" />
     <Content Include="View\memberShip.html" />
     <Content Include="View\personalCenter.html" />
     <Content Include="Web.config" />
@@ -131,7 +143,9 @@
     <Compile Include="Helper\DbHelperSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Javascript\layer_mobile\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
