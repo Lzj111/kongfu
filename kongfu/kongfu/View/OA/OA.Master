@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OA.master.cs" Inherits="kongfu.View.OA.OA" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Css/flat-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container" style="width: 100%; margin-left: -30px;">
+            <div id="top" class="row demo-row">
+                <div class="row demo-row">
+                    <div class="col-xs-12">
+                        <nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                                    <span class="sr-only">Toggle navigation</span>
+                                </button>
+                                <a class="navbar-brand" href="Index.aspx" style="margin-left: 100px;">后台办公系统</a>
+                            </div>
+                          <%--  <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><a href="#fakelink">Index<span class="navbar-unread">1</span></a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <b class="caret"></b></a>
+                                        <span class="dropdown-arrow"></span>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#fakelink">About Us</a></li>
+                                </ul>
+                            </div>--%>
+                            <!-- /.navbar-collapse -->
+                        </nav>
+                        <!-- /navbar -->
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+        </div>
+
+        <div style="margin-top: 70px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+<script src="../../JavaScript/jquery.min.js"></script>
+<script src="../../JavaScript/flat-ui.min.js"></script>
+<script src="../../JavaScript/video.js"></script>
+<script src="../../JavaScript/jquery.gradientify.min.js"></script>
+<script src="../../JavaScript/echarts.js"></script>
+</html>

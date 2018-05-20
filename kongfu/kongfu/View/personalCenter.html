@@ -4,13 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>个人中心</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <link href="../Css/Lib/bootstrap.css" rel="stylesheet" />
+    <!--bootStrap 冲突 mini-->
+    <!--<link href="../Css/Lib/bootstrap.css" rel="stylesheet" />-->
     <script src="../Javascript/Lib/jquery.min.js"></script>
     <script src="../Javascript/Lib/angular.min.js"></script>
     <script src="../Javascript/Lib/bootstrap.js"></script>
     <script src="../Javascript/personalCenter/personalCenter.js"></script>
     <link href="../Css/personalCenter/personalCenter.css" rel="stylesheet" />
+    <link href="../Css/miniMobile.css" rel="stylesheet" />
+    <link href="../Css/iconfont.css" rel="stylesheet" />
+    <script src="../Javascript/minimobile/zepto.min.js"></script>
+    <script src="../Javascript/minimobile/miniMobile.js"></script>
+    <script src="../Javascript/minimobile/flexible.min.js"></script>
 
 </head>
 <body ng-app="kongFu">
@@ -22,45 +27,77 @@
                 <img class="header-top-message" src="../image/information_balloon_32px_562796_easyicon.net.png" />
             </div>
             <div class="header-content">
-                <img class="content-face" src="{{pageParameter.faceImg}}" />
+                <img class="content-face" src="{{pageParameter.userDetail.faceImg}}" />
                 <div class="content-fill">
-                    <label class="content-username">{{pageParameter.userName}}</label>
+                    <label class="content-username">{{pageParameter.userDetail.userName}}</label>
                     <span class="content-usedetail">
-                        <label>邀请码：</label><label>{{pageParameter.userId}}</label><a ng-click="copyNo()">复制</a>
+                        <label>邀请码：</label><label id="copyLabel">{{pageParameter.userDetail.invitationCode}}</label><a ng-click="copyNo()">复制</a>
                     </span>
                 </div>
             </div>
         </div>
         <!--中间内容-->
         <div id="content">
-            <div class="content-money">
+            <!--<div class="content-money">
                 <span>
                     <label>总佣金:{{pageParameter.sumCommission}}元</label>
                     <label>可提现佣金:{{pageParameter.canWithdraw}}元</label>
                 </span>
                 <span ng-click="withDraw()">提现</span>
-            </div>
+            </div>-->
             <div class="content-agency">
-                <p>总代理:{{pageParameter.agencyCount}}人</p>
+                <p>总代理:{{pageParameter.invitationDetail.agencyCount}}人</p>
                 <div>
-                    <dl><dt>一级代理/推荐</dt><dd>{{pageParameter.oneAgency}}人</dd></dl>
-                    <dl><dt>二级代理/推荐</dt><dd>{{pageParameter.twoAgency}}人</dd></dl>
-                    <dl><dt>三级代理/推荐</dt><dd>{{pageParameter.threeAgency}}人</dd></dl>
+                    <dl><dt>一级代理/推荐</dt><dd>{{pageParameter.invitationDetail.oneAgency}}人</dd></dl>
+                    <dl><dt>二级代理/推荐</dt><dd>{{pageParameter.invitationDetail.twoAgency}}人</dd></dl>
+                    <!--<dl><dt>三级代理/推荐</dt><dd>{{pageParameter.threeAgency}}人</dd></dl>-->
+                </div>
+            </div>
+            <div class="order-list">
+                <div>
+                    <span><img src="../image/personalCenter/qianbao.png" />我的钱包</span>
+                    <span class="order-money"><label>¥{{pageParameter.invitationDetail.myMoney}}</label><img src="../image/personalCenter/right.png" ng-click="orderClick(1)" /></span>
+                </div>
+                <div ng-class="{true:'dredge-show-bottom',false:''}[!pageParameter.userDetail.dredgeShow]">
+                    <span><img src="../image/personalCenter/jiasu.png" />积分加速</span>
+                    <span class="order-speed"><label ng-click="orderClick(2)">仅剩{{pageParameter.invitationDetail.Accelerate}}天加速</label></span>
+                </div>
+                <div ng-show="pageParameter.userDetail.dredgeShow">
+                    <span><img src="../image/personalCenter/zhuansi.png" />成为VIP会员</span>
+                    <span class="order-vip"><label ng-click="orderClick(3)">立即开通</label></span>
+                </div>
+            </div>
+            <div class="menu-list">
+                <div class="menu-item" ng-repeat="item in pageParameter.menuList" ng-click="menuClick(item.type)">
+                    <img src="{{item.imgSrc}}" />
+                    <label>{{item.name}}</label>
                 </div>
             </div>
         </div>
-
-        <div class="order">
-            <div ng-repeat="item in pageParameter.orderList" ng-click="orderClick(item.type)">
-                {{item.name}}
-            </div>
-        </div>
-
-        <div id="bottom">
-
-        </div>
+        <!--空白部分-->
+        <div class="h10"></div>
     </div>
-
-
+    <!-- 底部导航 -->
+    <nav class="demo-bottomNav w75 h10 t-c bg-color8" style="position:fixed;bottom:0px;">
+        <!--style="position:absolute;bottom:0px;"-->
+        <div class="w25 fl h10">
+            <a href="../Minimobile.html">
+                <i class="f46 icon iconfont icon-home_light"></i>
+                <p>首页</p>
+            </a>
+        </div>
+        <div class="w25 fl h10">
+            <a href="#">
+                <i class="f46 icon iconfont icon-list"></i>
+                <p>任务</p>
+            </a>
+        </div>
+        <div class="w25 fl h10">
+            <a href="../View/personalCenter.html">
+                <i class="f46 icon iconfont icon-servicefill"></i>
+                <p>我的</p>
+            </a>
+        </div>
+    </nav>
 </body>
 </html>

@@ -118,6 +118,19 @@
     <Content Include="image\login\icon.png" />
     <Content Include="image\login\imac-2x.png" />
     <Content Include="image\login\imac.png" />
+    <Content Include="image\personalCenter\erweima.png" />
+    <Content Include="image\personalCenter\fensi.png" />
+    <Content Include="image\personalCenter\guanyu.png" />
+    <Content Include="image\personalCenter\jiasu.png" />
+    <Content Include="image\personalCenter\kefu.png" />
+    <Content Include="image\personalCenter\qianbao.png" />
+    <Content Include="image\personalCenter\right.png" />
+    <Content Include="image\personalCenter\shouchang.png" />
+    <Content Include="image\personalCenter\uperweima.png" />
+    <Content Include="image\personalCenter\zhanshi.png" />
+    <Content Include="image\personalCenter\zhifubao.png" />
+    <Content Include="image\personalCenter\zhuansi.png" />
+    <Content Include="image\personalCenter\微信截图_20180520153222.png" />
     <Content Include="image\tile\ribbon-2x.png" />
     <Content Include="image\tile\ribbon.png" />
     <Content Include="Javascript\minimobile\mobileSelect.js" />
@@ -128,7 +141,9 @@
     <Content Include="Javascript\select-miniMobile.js" />
     <Content Include="OaIndex.html" />
     <Content Include="View\JobInfo.html" />
+    <Content Include="View\OA\Information.aspx" />
     <Content Include="View\Web.config" />
+    <Content Include="View\OA\OA.Master" />
     <None Include="View\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -189,6 +204,20 @@
   <ItemGroup>
     <Compile Include="Helper\DbHelperSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\OA\Information.aspx.cs">
+      <DependentUpon>Information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\OA\Information.aspx.designer.cs">
+      <DependentUpon>Information.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\OA\OA.Master.cs">
+      <DependentUpon>OA.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\OA\OA.Master.designer.cs">
+      <DependentUpon>OA.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Javascript\layer_mobile\" />
