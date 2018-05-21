@@ -17,12 +17,16 @@
                     <thead>
                         <tr>
                             <%--<th>ID</th>--%>
-                            <th>指纹ID</th>
-                            <th>上班打卡时间</th>
-                            <th>下班打卡时间</th>
-                            <th>日期</th>
-                            <th>类型</th>
-                            <th>工时</th>
+                            <th>标题</th>
+                            <th>金额</th>
+                            <th>结算方式</th>
+                            <th>地区</th>
+                            <th>时间</th>
+                            <th>人数</th>
+                            <th>浏览数量</th>
+                            <th>起止日期</th>
+                            <th>兼职时间</th>
+                            <th>条件限制</th>
                         </tr>
                     </thead>
             </HeaderTemplate>
@@ -35,7 +39,6 @@
                         </th>
                         <th id="WorkTime" runat="server">
                             <%#Eval("WorkTime") %>
-                            <%--<asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Eval("Name") %>' />--%>
                         </th>
                         <th id="HomeTime" runat="server">
                             <%#Eval("HomeTime") %>
@@ -44,7 +47,6 @@
                             <%#Eval("WorkDate") %>
                         </th>
                         <th id="AtteType" runat="server">
-                           <%-- <%#DataBinder.Eval(Container.DataItem,"AtteType").ToString()=="99"?"正常":"不正常" %>--%>
                             <%#Eval("test") %>
                         </th>
                         <th id="WorkStati" runat="server">
