@@ -4,10 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>个人中心</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--bootStrap 冲突 mini-->
-    <!--<link href="../Css/Lib/bootstrap.css" rel="stylesheet" />-->
+
     <script src="../Javascript/Lib/jquery.min.js"></script>
-    <script src="../Javascript/Lib/angular.min.js"></script>
+
     <script src="../Javascript/Lib/bootstrap.js"></script>
     <script src="../Javascript/personalCenter/personalCenter.js"></script>
     <link href="../Css/personalCenter/personalCenter.css" rel="stylesheet" />
@@ -18,8 +17,8 @@
     <script src="../Javascript/minimobile/flexible.min.js"></script>
 
 </head>
-<body ng-app="kongFu">
-    <div ng-controller="personalCenterCtrl">
+<body>
+    <div>
         <!--头部-->
         <div id="header">
             <div class="header-top">
@@ -27,52 +26,41 @@
                 <img class="header-top-message" src="../image/information_balloon_32px_562796_easyicon.net.png" />
             </div>
             <div class="header-content">
-                <img class="content-face" src="{{pageParameter.userDetail.faceImg}}" />
+                <img class="content-face" src="../image/%e4%b8%aa%e4%ba%ba%e5%9b%be%e7%89%87.PNG" />
                 <div class="content-fill">
-                    <label class="content-username">{{pageParameter.userDetail.userName}}</label>
-                    <span class="content-usedetail">
-                        <label>邀请码：</label><label id="copyLabel">{{pageParameter.userDetail.invitationCode}}</label><a ng-click="copyNo()">复制</a>
-                    </span>
+                    <label class="content-username">***</label>
+                    <span class="content-usedetail"><label>邀请码：</label><label class="copy-label">***</label><a onclick="copyNo()">复制</a></span>
                 </div>
             </div>
         </div>
         <!--中间内容-->
         <div id="content">
-            <!--<div class="content-money">
-                <span>
-                    <label>总佣金:{{pageParameter.sumCommission}}元</label>
-                    <label>可提现佣金:{{pageParameter.canWithdraw}}元</label>
-                </span>
-                <span ng-click="withDraw()">提现</span>
-            </div>-->
             <div class="content-agency">
-                <p>总代理:{{pageParameter.invitationDetail.agencyCount}}人</p>
+                <p>总代理:<label class="people-num">0</label></p>
                 <div>
-                    <dl><dt>一级代理/推荐</dt><dd>{{pageParameter.invitationDetail.oneAgency}}人</dd></dl>
-                    <dl><dt>二级代理/推荐</dt><dd>{{pageParameter.invitationDetail.twoAgency}}人</dd></dl>
-                    <!--<dl><dt>三级代理/推荐</dt><dd>{{pageParameter.threeAgency}}人</dd></dl>-->
+                    <dl><dt>一级代理/推荐</dt><dd><label class="oneAgency">0</label>人</dd></dl>
+                    <dl><dt>二级代理/推荐</dt><dd><label class="twoAgency">0</label></dd></dl>
+                    <dl><dt>三级代理/推荐</dt><dd><label class="twoAgency">0</label></dd></dl>
                 </div>
             </div>
             <div class="order-list">
                 <div>
                     <span><img src="../image/personalCenter/qianbao.png" />我的钱包</span>
-                    <span class="order-money"><label>¥{{pageParameter.invitationDetail.myMoney}}</label><img src="../image/personalCenter/right.png" ng-click="orderClick(1)" /></span>
+                    <span class="order-money">
+                        <label class="myMoney">¥0</label>
+                        <img src="../image/personalCenter/right.png" onclick="orderClick(1)" />
+                    </span>
                 </div>
-                <div ng-class="{true:'dredge-show-bottom',false:''}[!pageParameter.userDetail.dredgeShow]">
+                <div>
                     <span><img src="../image/personalCenter/jiasu.png" />积分加速</span>
-                    <span class="order-speed"><label ng-click="orderClick(2)">仅剩{{pageParameter.invitationDetail.Accelerate}}天加速</label></span>
+                    <span class="order-speed"><label onclick="orderClick(2)" class="accelerate">仅剩0天加速</label></span>
                 </div>
-                <div ng-show="pageParameter.userDetail.dredgeShow">
+                <div>
                     <span><img src="../image/personalCenter/zhuansi.png" />成为VIP会员</span>
-                    <span class="order-vip"><label ng-click="orderClick(3)">立即开通</label></span>
+                    <span class="order-vip"><label onclick="orderClick(3)">立即开通</label></span>
                 </div>
             </div>
-            <div class="menu-list">
-                <div class="menu-item" ng-repeat="item in pageParameter.menuList" ng-click="menuClick(item.type)">
-                    <img src="{{item.imgSrc}}" />
-                    <label>{{item.name}}</label>
-                </div>
-            </div>
+            <div class="menu-list"></div>
         </div>
         <!--空白部分-->
         <div class="h10"></div>
