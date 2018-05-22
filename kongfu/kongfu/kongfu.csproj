@@ -133,6 +133,8 @@
     <Content Include="image\personalCenter\微信截图_20180520153222.png" />
     <Content Include="image\tile\ribbon-2x.png" />
     <Content Include="image\tile\ribbon.png" />
+    <Content Include="Javascript\flat-ui.js" />
+    <Content Include="Javascript\flat-ui.min.js" />
     <Content Include="Javascript\minimobile\mobileSelect.js" />
     <Content Include="Javascript\Oa\flat-ui.min.js" />
     <Content Include="Javascript\Oa\jquery.gradientify.min.js" />
@@ -142,6 +144,7 @@
     <Content Include="OaIndex.html" />
     <Content Include="View\JobInfo.html" />
     <Content Include="View\OA\Information.aspx" />
+    <Content Include="View\OA\Revised.aspx" />
     <Content Include="View\Web.config" />
     <Content Include="View\OA\OA.Master" />
     <None Include="View\Web.Debug.config">
@@ -218,8 +221,17 @@
     <Compile Include="View\OA\OA.Master.designer.cs">
       <DependentUpon>OA.Master</DependentUpon>
     </Compile>
+    <Compile Include="View\OA\Revised.aspx.cs">
+      <DependentUpon>Revised.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\OA\Revised.aspx.designer.cs">
+      <DependentUpon>Revised.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="fonts\glyphicons\" />
+    <Folder Include="fonts\lato\" />
     <Folder Include="Javascript\layer_mobile\" />
   </ItemGroup>
   <PropertyGroup>
