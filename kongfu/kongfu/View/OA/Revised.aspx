@@ -12,11 +12,67 @@
         <div class="tile">
             <h3 class="tile-title">功能</h3>
             <p>Collective</p>
-            <a runat="server" class="btn btn-primary btn-large btn-block" onclick="upload()">确定</a>
+            <a runat="server" class="btn btn-primary btn-large btn-block" onclick="upload()">添加</a>
         </div>
     </div>
     <div class="col-xs-10" style="font-size: 12px;">
 
+            <div class="row">
+                <div class="col-xs-4">
+                    <h5>标题</h5>
+                    <input type="text" value="" placeholder="Inactive" class="form-control" />
+                </div>
+                <div>
+                    <div class="col-xs-2">
+                        <h5>类型</h5>
+                        <input runat="server" class="form-control" id="Search1" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-2">
+                        <h5>金额</h5>
+                        <input runat="server" class="form-control" id="Search9" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-2">
+                        <h5>结算方式</h5>
+                        <input runat="server" class="form-control" id="Search2" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-2">
+                        <h5>地区</h5>
+                        <input runat="server" class="form-control" id="Search3" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <div class="col-xs-2">
+                        <h5>人数</h5>
+                        <input runat="server" class="form-control" id="Search4" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-2">
+                        <h5>起止日期</h5>
+                        <input runat="server" class="form-control" id="Search5" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-2">
+                        <h5>条件限制</h5>
+                        <input runat="server" class="form-control" id="Search6" type="search" value placeholder="ID" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h5>招聘内容</h5>
+                <div id="editor">
+                </div>
+            </div>
+        </div>
         <%--<th>ID</th>
         <th>用户编号</th>
         <th>微信编号</th>
@@ -33,20 +89,6 @@
         <th>条件限制</th>
         <th>修改</th>
         <th>删除</th>--%>
-
-        <label>标题</label>
-        <label>类型</label>
-        <label>金额</label>
-        <label>结算方式</label>
-        <label>地区</label>
-        <label>人数</label>
-        <label>地区</label>
-        <label>起止日期</label>
-        <label>条件限制</label>
-
-        <div id="editor">
-        </div>
-    </div>
     <script>
         var toolbarOptions = [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons

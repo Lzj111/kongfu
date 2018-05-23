@@ -10,7 +10,7 @@
             <h3 class="tile-title">功能</h3>
             <p>Collective</p>
             <%--<input runat="server" class="form-control" id="finger" type="search" value placeholder="ID" /><br />--%>
-            <asp:Button runat="server" CssClass="btn btn-primary btn-large btn-block" ID="id" Text="添加数据" OnClick="Page_Load" />
+            <a href="Revised.aspx" class="btn btn-primary btn-large btn-block" id="id">添加数据</a>
         </div>
     </div>
     <div class="col-xs-10" style="font-size:12px;">
@@ -54,7 +54,7 @@
                             <%#Eval("Job_Title") %>
                         </th>
                         <th id="Job_Type" runat="server">
-                            <%#Eval("Job_Type") %>
+                            <%#Eval("types") %>
                         </th>
                         <th id="Job_Money" runat="server">
                             <%#Eval("Job_Money") %>
@@ -63,7 +63,7 @@
                             <%#Eval("Job_Settlement") %>
                         </th>
                         <th id="Job_Address" runat="server">
-                            <%#Eval("Job_Address") %>
+                            <%#Eval("Dict_Item_Name") %>
                         </th>
                         <th id="Job_Time" runat="server">
                             <%#Eval("Job_Time") %>
