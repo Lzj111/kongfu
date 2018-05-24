@@ -50,6 +50,62 @@
             pointer-events: none;
         }
     </style>
+
+    <script type="text/javascript">
+        var toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      //['blockquote', 'code-block'],
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'image': 'Image' }],
+      //[{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }],                         // text direction
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+      ['clean']                                         // remove formatting button
+        ];
+        var quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+        });
+        function upload() {
+            //表格内的数据带html标签
+            let t = quill.container.firstChild.innerHTML;
+//获取标题的值
+var title=$("#title").val();
+//获取金额的值
+            var money=$("#money").val();
+//获取类型的值
+            var select=$("#select").val();
+//获取结算方式
+            var method=$("#method").val();
+//获取地区
+            var address=$("#address").val();
+//获取人数
+            var num=$("#num").val();
+//获取启止日期
+            var startdate=$("#startdate").val();
+//获取条件限制
+            var condition = $("#condition").val();
+
+            $.ajax({
+             type: "POST",
+             url: "test.json",
+             data: {title:title,money:money,select:select,method:method,address:address,num:num,startdate:startdate,condition:condition},
+             dataType: "json",
+             success: function(data){
+                         //$('#resText').empty();   //清空resText里面的所有内容
+                         
+                      }
+         });
+
+        }
+
+    </script>
     <div class="col-xs-2">
         <div class="tile">
             <h3 class="tile-title">功能</h3>
@@ -97,19 +153,19 @@
             <div>
                 <div class="col-xs-2">
                     <h6>人数</h6>
-                    <input runat="server" class="form-control" id="Search4" type="search" value placeholder="ID" />
+                    <input runat="server" class="form-control" id="num" type="search" value placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>起止日期</h6>
-                    <input runat="server" class="form-control" id="Search5" type="search" value placeholder="ID" />
+                    <input runat="server" class="form-control" id="startdate" type="search" value placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>条件限制</h6>
-                    <input runat="server" class="form-control" id="Search6" type="search" value placeholder="ID" />
+                    <input runat="server" class="form-control" id="condition" type="search" value placeholder="ID" />
                 </div>
             </div>
         </div>
@@ -119,44 +175,5 @@
             </div>
         </div>
     </div>
-    <script>
-        var toolbarOptions = [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      //['blockquote', 'code-block'],
 
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      [{ 'image': 'Image' }],
-      //[{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
-
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-
-      ['clean']                                         // remove formatting button
-        ];
-
-        //var quill = new Quill('#editor', {
-        //    modules: {
-        //        toolbar: '#toolbar'
-        //    },
-        //    theme: 'snow'
-
-        //});
-
-        var quill = new Quill('#editor', {
-            modules: {
-                toolbar: toolbarOptions
-            },
-            theme: 'snow'
-        });
-        function upload() {
-            //表格内的数据带html标签
-            let t = quill.container.firstChild.innerHTML;
-
-        }
-
-    </script>
 </asp:Content>

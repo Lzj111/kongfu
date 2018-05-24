@@ -40,30 +40,30 @@ namespace kongfu.View.OA {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl address;
         
         /// <summary>
-        /// Search4 控件。
+        /// num 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Search4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl num;
         
         /// <summary>
-        /// Search5 控件。
+        /// startdate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Search5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl startdate;
         
         /// <summary>
-        /// Search6 控件。
+        /// condition 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Search6;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl condition;
     }
 }
