@@ -58,7 +58,7 @@
         </div>
     </form>
 </body>
-<script src="../../JavaScript/jquery.min.js"></script>
+<script src="../../Javascript/Oa/jquery.min.js"></script>
 <script src="../../JavaScript/flat-ui.min.js"></script>
 
 

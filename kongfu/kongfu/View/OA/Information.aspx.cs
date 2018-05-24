@@ -22,21 +22,21 @@ namespace kongfu.View.OA
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 string type = ds.Tables[0].Rows[i]["Job_Type"].ToString();
-                if (type != null && type != "")
+                if (type == null && type == "")
                 {
 
                 }
                 else if(type=="0")
                 {
-                    ds.Tables[0].Rows[0]["types"] = "全职";
+                    ds.Tables[0].Rows[i]["types"] = "全职";
                 }
                 else if (type == "1")
                 {
-                    ds.Tables[0].Rows[0]["types"] = "兼职";
+                    ds.Tables[0].Rows[i]["types"] = "兼职";
                 }
                 else if (type == "2")
                 {
-                    ds.Tables[0].Rows[0]["types"] = "网赚";
+                    ds.Tables[0].Rows[i]["types"] = "网赚";
                 }
             }
             DataTable dt = ds.Tables[0];

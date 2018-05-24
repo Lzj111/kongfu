@@ -9,26 +9,28 @@
     <script src="../Javascript/personalCenter/memberShip.js"></script>
     <link href="../Css/Lib/bootstrap.css" rel="stylesheet" />
     <link href="../Css/personalCenter/memberShip.css" rel="stylesheet" />
+
+    <link href="../Css/iconfont.css" rel="stylesheet" />
 </head>
-<body ng-app="memberShip">
-    <div id="memberShip" ng-controller="memberShipCtrl">
-        <div id="tops">申请代理</div>
-        <div id="show-img"><img src="../image/zhanshi.png" /></div>
+<body>
+    <div id="memberShip">
+        <div id="tops"><a href="personalCenter.html" class="icon color8 iconfont icon-home_light"></a>申请代理</div>
+        <div id="show-img"><img src="../image/personalCenter/zhanshi.png" /></div>
         <div id="head-detail">
             <div class="header-cont">
-                <img class="header-face" src="{{pageParameter.faceImg}}" />
-                <span>昵称:<label>{{pageParameter.userName}}</label></span>
-                <span>会员ID:<label>{{pageParameter.userId}}</label></span>
+                <img class="header-face" src="../image/%e4%b8%aa%e4%ba%ba%e5%9b%be%e7%89%87.PNG" />
+                <span>昵称:<label class="userName">***</label></span>
+                <span>会员ID:<label class="userId">***</label></span>
             </div>
             <div class="recharge">
                 <div></div>充值会员
             </div>
             <div class="pay-button">
-                <div>高配版&nbsp;&nbsp;&nbsp;¥{{pageParameter.payMoney}}</div>
+                <div>高配版&nbsp;&nbsp;&nbsp;¥50</div>
                 <div><input type="radio" checked="checked"/>&nbsp;我已经阅读并完全同意<span>《系统在线使用服务协议》</span></div>
             </div>
         </div>
-        <div class="pay-submit" ng-click="payNow()">微信支付</div>
+        <div class="pay-submit" onclick="payNow()">微信支付</div>
         <div class="message">注: 此费用为软件使用费，不是充值费用</div>
     </div>
 </body>

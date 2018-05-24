@@ -4,9 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>个人中心</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+    <!--bootStrap 冲突 mini-->
+    <!--<link href="../Css/Lib/bootstrap.css" rel="stylesheet" />-->
     <script src="../Javascript/Lib/jquery.min.js"></script>
-
+    <!--<script src="../Javascript/Lib/angular.min.js"></script>-->
     <script src="../Javascript/Lib/bootstrap.js"></script>
     <script src="../Javascript/personalCenter/personalCenter.js"></script>
     <link href="../Css/personalCenter/personalCenter.css" rel="stylesheet" />
@@ -35,21 +36,26 @@
         </div>
         <!--中间内容-->
         <div id="content">
+            <!--<div class="content-money">
+                <span>
+                    <label>总佣金:{{pageParameter.sumCommission}}元</label>
+                    <label>可提现佣金:{{pageParameter.canWithdraw}}元</label>
+                </span>
+                <span ng-click="withDraw()">提现</span>
+            </div>-->
             <div class="content-agency">
                 <p>总代理:<label class="people-num">0</label></p>
                 <div>
                     <dl><dt>一级代理/推荐</dt><dd><label class="oneAgency">0</label>人</dd></dl>
                     <dl><dt>二级代理/推荐</dt><dd><label class="twoAgency">0</label></dd></dl>
-                    <dl><dt>三级代理/推荐</dt><dd><label class="twoAgency">0</label></dd></dl>
+                    <!--<dl><dt>三级代理/推荐</dt><dd>{{pageParameter.threeAgency}}人</dd></dl>-->
                 </div>
             </div>
             <div class="order-list">
                 <div>
                     <span><img src="../image/personalCenter/qianbao.png" />我的钱包</span>
-                    <span class="order-money">
-                        <label class="myMoney">¥0</label>
-                        <img src="../image/personalCenter/right.png" onclick="orderClick(1)" />
-                    </span>
+                    <span class="order-money"><label class="myMoney">¥0</label>
+                    <img src="../image/personalCenter/right.png" onclick="orderClick(1)" /></span>
                 </div>
                 <div>
                     <span><img src="../image/personalCenter/jiasu.png" />积分加速</span>

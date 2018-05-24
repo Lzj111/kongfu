@@ -1,7 +1,5 @@
-﻿var app = angular.module("kongFu", []);
-
-app.controller('personalCenterCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.pageParameter = {
+﻿$(function () {
+    var pageParameter = {
         userDetail: {
             userId: "",
             faceImg: "../image/%e4%b8%aa%e4%ba%ba%e5%9b%be%e7%89%87.PNG",
@@ -19,11 +17,6 @@ app.controller('personalCenterCtrl', ['$scope', '$http', function ($scope, $http
             myMoney: "0",
             Accelerate: "0",
         },
-        orderList: [
-            { type: 1, imgSrc: "../image/personalCenter/qianbao.png", name: "我的钱包", content: "0" },
-            { type: 2, imgSrc: "../image/personalCenter/jiasu.png", name: "积分加速", content: "0" },
-            { type: 3, imgSrc: "../image/personalCenter/zhuansi.png", name: "成为VIP会员", content: "立即开通" },
-        ],
         menuList: [
             { type: 1, imgSrc: "../image/personalCenter/fensi.png", name: "我的粉丝" },
             { type: 2, imgSrc: "../image/personalCenter/erweima.png", name: "推广二维码" },
@@ -35,53 +28,80 @@ app.controller('personalCenterCtrl', ['$scope', '$http', function ($scope, $http
         ]
     }
 
-    InitUserPage($scope.pageParameter.userDetail.wxId);
+    InitUserPage(pageParameter.userDetail.wxId);
     function InitUserPage(wxId) {
         //根据wxId获取用户数据
-        $http({
+        $.ajax({
             method: 'get', //get请求方式
             url: 'http://localhost:8000/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
-            params: { operationType: "getUserInfo", openId: wxId, },
-        }).then(function (result) {
-            var userInfo = result.data[0];
-            console.log("用户信息：", userInfo);
-            $scope.pageParameter.userDetail.userId = userInfo.User_Id;
-            $scope.pageParameter.userDetail.faceImg = userInfo.User_Face;
-            $scope.pageParameter.userDetail.userName = userInfo.User_Name;
-            $scope.pageParameter.userDetail.invitationCode = userInfo.Invitation_Code;
-            $scope.pageParameter.userDetail.isVip = userInfo.isVip;
-            $scope.pageParameter.userDetail.dredgeShow = userInfo.isVip == "0" ? true : false;
-            // 根据当前用户的邀请码Id得到用户的代理信息
-            $http({
-                method: 'get', //get请求方式
-                url: 'http://localhost:8000/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
-                params: { operationType: "srrogate", invitation: $scope.pageParameter.userDetail.invitationCode, },
-            }).then(function (result) {
-                var invitationInfo = result.data;
-                $scope.pageParameter.invitationDetail.agencyCount = invitationInfo[0].length + invitationInfo[1].length;
-                $scope.pageParameter.invitationDetail.oneAgency = invitationInfo[0].length;
-                $scope.pageParameter.invitationDetail.twoAgency = invitationInfo[1].length;
+            async: false,
+            data: "operationType=getUserInfo&openId=" + wxId,
+            success: function (result) {
+                var userInfo = JSON.parse(result)[0];
+                console.log("用户信息：", userInfo);
+                pageParameter.userDetail.userId = userInfo.User_Id;
+                pageParameter.userDetail.faceImg = userInfo.User_Face;
+                pageParameter.userDetail.userName = userInfo.User_Name;
+                pageParameter.userDetail.invitationCode = userInfo.Invitation_Code;
+                pageParameter.userDetail.isVip = userInfo.isVip;
 
-                console.log("代理信息：", invitationInfo);
-            }, function (result) {
-                //失败时执行 
-                console.log(result);
-            });
-        }, function (result) {
-            //失败时执行 
-            console.log(result);
+                if (pageParameter.userDetail.isVip == "1") {
+                    $("div.order-list>div:eq(1)").addClass("dredge-show-bottom");
+                    $("div.order-list>div:eq(2)").addClass("vip-hide");
+                }
+                $("img.content-face").attr("src", pageParameter.userDetail.faceImg);
+                $("label.content-username").html(pageParameter.userDetail.userName);
+                $("label.copy-label").html(pageParameter.userDetail.invitationCode);
+
+
+                // 根据当前用户的邀请码Id得到用户的代理信息
+                $.ajax({
+                    method: 'get', //get请求方式
+                    url: 'http://localhost:8000/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
+                    data: "operationType=srrogate&invitation=" + pageParameter.userDetail.invitationCode,
+                    success: function (result) {
+                        var invitationInfo = JSON.parse(result);
+                        pageParameter.invitationDetail.agencyCount = invitationInfo[0].length + invitationInfo[1].length;
+                        pageParameter.invitationDetail.oneAgency = invitationInfo[0].length;
+                        pageParameter.invitationDetail.twoAgency = invitationInfo[1].length;
+
+                        $("label.people-num").html(pageParameter.invitationDetail.agencyCount);
+                        $("label.oneAgency").html(pageParameter.invitationDetail.oneAgency);
+                        $("label.twoAgency").html(pageParameter.invitationDetail.twoAgency);
+                        $("label.myMoney").html("¥" + pageParameter.invitationDetail.myMoney);
+                        $("label.accelerate").html("仅剩" + pageParameter.invitationDetail.Accelerate + "天加速");
+                        console.log("代理信息：", invitationInfo);
+                    }
+                });
+            }
         });
+
+        //绑定菜单集合
+        var $menuListHtml = "";
+        $.each(pageParameter.menuList, function (i, item) {
+            $menuListHtml += "<div class='menu-item' onclick='menuClick(" + item.type + ")'>" +
+                "<img src='" + item.imgSrc + "'/><label>" + item.name + "</label></div>";
+        });
+        $("div.menu-list").append($menuListHtml);
     }
 
-    $scope.copyNo = function () {
-        alert("复制");
+    // 复制命令
+    copyNo = function () {
+        var oInput = document.createElement('input');
+        oInput.value = pageParameter.userDetail.invitationCode;
+        document.body.appendChild(oInput);
+        oInput.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        oInput.remove();
     }
 
-    $scope.withDraw = function () {
+    // 提现
+    withDraw = function () {
         alert("提现");
     }
 
-    $scope.orderClick = function (type) {
+    // 列表点击
+    orderClick = function (type) {
         if (type == "1") {
             alert("我的钱包")
         }
@@ -92,13 +112,13 @@ app.controller('personalCenterCtrl', ['$scope', '$http', function ($scope, $http
             location.href = "memberShip.html";
         }
     }
-    $scope.menuClick = function (type) {
-        $.each($scope.pageParameter.menuList, function (i, item) {
+
+    // 底部菜单
+    menuClick = function (type) {
+        $.each(pageParameter.menuList, function (i, item) {
             if (type == item.type) {
                 alert("您点击了" + item.name);
             }
         });
     }
-
-}]);
-
+});
