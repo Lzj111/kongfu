@@ -13,31 +13,31 @@ namespace kongfu.View.OA {
     public partial class Revised {
         
         /// <summary>
-        /// Search9 控件。
+        /// money 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Search9;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl money;
         
         /// <summary>
-        /// Search2 控件。
+        /// method 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Search2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl method;
         
         /// <summary>
-        /// Search3 控件。
+        /// address 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Search3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl address;
         
         /// <summary>
         /// Search4 控件。

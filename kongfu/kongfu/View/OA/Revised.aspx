@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <h6>标题</h6>
-                <input type="text" value="" placeholder="Inactive" class="form-control" />
+                <input type="text" id="title" value="" placeholder="Inactive" class="form-control" />
             </div>
             <div class="col-xs-2">
                 <h6>类型</h6>
@@ -77,19 +77,19 @@
             <div>
                 <div class="col-xs-2">
                     <h6>金额</h6>
-                    <input runat="server" class="form-control" id="Search9" type="search" value placeholder="ID" />
+                    <input runat="server" class="form-control" id="money" type="search" value placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>结算方式</h6>
-                    <input runat="server" class="form-control" id="Search2" type="search" value placeholder="ID" />
+                    <input runat="server" class="form-control" id="method" type="search" value placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>地区</h6>
-                    <input runat="server" class="form-control" id="Search3" type="search" value placeholder="ID" />
+                    <input runat="server" class="form-control" id="address" type="search" value placeholder="ID" />
                 </div>
             </div>
         </div>
@@ -153,7 +153,9 @@
             theme: 'snow'
         });
         function upload() {
-            var delta = quill.getContents();
+            //表格内的数据带html标签
+            let t = quill.container.firstChild.innerHTML;
+
         }
 
     </script>
