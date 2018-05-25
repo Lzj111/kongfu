@@ -79,19 +79,19 @@
             <div>
                 <div class="col-xs-2">
                     <h6>金额</h6>
-                    <input runat="server" class="form-control" id="money" type="search" value placeholder="ID" />
+                    <input class="form-control" id="money" type="text"  placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>结算方式</h6>
-                    <input runat="server" class="form-control" id="method" type="search" value placeholder="ID" />
+                    <input  class="form-control" id="method" type="text"  placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>地区</h6>
-                    <input runat="server" class="form-control" id="address" type="search" value placeholder="ID" />
+                    <input  class="form-control" id="address" type="text"  placeholder="ID" />
                 </div>
             </div>
         </div>
@@ -99,25 +99,25 @@
             <div>
                 <div class="col-xs-2">
                     <h6>人数</h6>
-                    <input runat="server" class="form-control" id="num" type="search" value placeholder="ID" />
+                    <input class="form-control" id="num" type="text"  placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>起止日期</h6>
-                    <input runat="server" class="form-control" id="startdate" type="search" value placeholder="ID" />
+                    <input class="form-control" id="startdate" type="text"  placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>工作时间</h6>
-                    <input runat="server" class="form-control" id="workdate" type="search" value placeholder="ID" />
+                    <input class="form-control" id="workdate" type="text"  placeholder="ID" />
                 </div>
             </div>
             <div>
                 <div class="col-xs-2">
                     <h6>条件限制</h6>
-                    <input runat="server" class="form-control" id="condition" type="search" value placeholder="ID" />
+                    <input  class="form-control" id="condition" type="text"  placeholder="ID" />
                 </div>
             </div>
         </div>
@@ -129,18 +129,18 @@
     </div>
     <script type="text/javascript">
         var toolbarOptions = [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      //['blockquote', 'code-block'],
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      [{ 'image': 'Image' }],
-      //[{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-      ['clean']                                         // remove formatting button
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            //['blockquote', 'code-block'],
+            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'image': 'Image' }],
+            //[{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+            [{ 'direction': 'rtl' }],                         // text direction
+            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+            [{ 'font': [] }],
+            [{ 'align': [] }],
+            ['clean']                                         // remove formatting button
         ];
         var quill = new Quill('#editor', {
             modules: {
@@ -156,7 +156,7 @@
             //获取金额的值
             var money = $("#money").val();
             //获取类型的值
-            var select = $("#select").val();
+            var select = $("#select option:selected").val();
             //获取结算方式
             var method = $("#method").val();
             //获取地区
