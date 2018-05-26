@@ -49,6 +49,10 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\陈锦烈\Desktop\kongfu-master (2)\kongfu-master\kongfu\kongfu\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -82,6 +86,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Ajax\OA\Oa.ashx" />
+    <Content Include="Ajax\OA\Oacontrol.ashx" />
     <None Include="packages.config" />
     <Content Include="image\icons\logo.ico" />
     <Content Include="image\icons\png\Book.png" />
@@ -148,6 +153,13 @@
     <Content Include="View\OA\Revised.aspx" />
     <Content Include="View\Web.config" />
     <Content Include="View\OA\OA.Master" />
+    <Content Include="partTimeJob\GetJobInfo.ashx" />
+    <Content Include="partTimeJob\partTimeArea.ashx" />
+    <Content Include="partTimeJob\PartTimeCondition.ashx" />
+    <Content Include="partTimeJob\PartTimeJobList.ashx" />
+    <Content Include="partTimeJob\PartTimeType.ashx" />
+    <Content Include="Provider\personalCenter.ashx" />
+    <None Include="Properties\PublishProfiles\kongfu.pubxml" />
     <None Include="View\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,12 +174,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BtIndex.html" />
     <Content Include="Css\amazeui.css" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\ratchet.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="image\Article\1.jpg" />
     <Content Include="image\Article\2.jpg" />
     <Content Include="image\Article\3.jpg" />
@@ -203,14 +213,39 @@
     <Content Include="View\PartTimeType.html" />
     <Content Include="View\memberShip.html" />
     <Content Include="View\personalCenter.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ajax\OA\Oa.ashx.cs">
       <DependentUpon>Oa.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Ajax\OA\Oacontrol.ashx.cs">
+      <DependentUpon>Oacontrol.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Helper\DbHelperSQL.cs" />
+    <Compile Include="Helper\SqlHelper.cs" />
+    <Compile Include="partTimeJob\GetJobInfo.ashx.cs">
+      <DependentUpon>GetJobInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="partTimeJob\model\Job.cs" />
+    <Compile Include="partTimeJob\partTimeArea.ashx.cs">
+      <DependentUpon>partTimeArea.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="partTimeJob\PartTimeCondition.ashx.cs">
+      <DependentUpon>PartTimeCondition.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="partTimeJob\PartTimeJobList.ashx.cs">
+      <DependentUpon>PartTimeJobList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="partTimeJob\PartTimeType.ashx.cs">
+      <DependentUpon>PartTimeType.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\personalCenter.ashx.cs">
+      <DependentUpon>personalCenter.ashx</DependentUpon>
+    </Compile>
     <Compile Include="View\OA\Information.aspx.cs">
       <DependentUpon>Information.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -241,6 +276,25 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

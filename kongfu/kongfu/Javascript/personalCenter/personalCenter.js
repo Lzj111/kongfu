@@ -1,19 +1,19 @@
 ﻿$(function () {
     var pageParameter = {
         userDetail: {
-            userId: "",
+            userId: "9ED67445-5807-4342-8C51-F4AEB04CE440",
             faceImg: "../image/%e4%b8%aa%e4%ba%ba%e5%9b%be%e7%89%87.PNG",
             userName: "***",
             invitationCode: "***",
             isVip: 0,
-            wxId: "123456789",
+            wxId: "111111",
             dredgeShow: false,
         },
         invitationDetail: {
             agencyCount: 0,
             oneAgency: 0,
             twoAgency: 0,
-            //threeAgency: 1,
+            threeAgency: 0,
             myMoney: "0",
             Accelerate: "0",
         },
@@ -33,48 +33,65 @@
         //根据wxId获取用户数据
         $.ajax({
             method: 'get', //get请求方式
-            url: 'http://localhost:8000/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
+            url: 'http://localhost:31024/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
             async: false,
             data: "operationType=getUserInfo&openId=" + wxId,
             success: function (result) {
                 var userInfo = JSON.parse(result)[0];
                 console.log("用户信息：", userInfo);
-                pageParameter.userDetail.userId = userInfo.User_Id;
-                pageParameter.userDetail.faceImg = userInfo.User_Face;
-                pageParameter.userDetail.userName = userInfo.User_Name;
-                pageParameter.userDetail.invitationCode = userInfo.Invitation_Code;
-                pageParameter.userDetail.isVip = userInfo.isVip;
+                if (userInfo != undefined && userInfo != null) {
+                    pageParameter.userDetail.userId = userInfo.User_Id;
+                    pageParameter.userDetail.faceImg = userInfo.User_Face;
+                    pageParameter.userDetail.userName = userInfo.User_Name;
+                    pageParameter.userDetail.invitationCode = userInfo.Invitation_Code;
+                    pageParameter.userDetail.isVip = userInfo.isVip;
 
-                if (pageParameter.userDetail.isVip == "1") {
-                    $("div.order-list>div:eq(1)").addClass("dredge-show-bottom");
-                    $("div.order-list>div:eq(2)").addClass("vip-hide");
-                }
-                $("img.content-face").attr("src", pageParameter.userDetail.faceImg);
-                $("label.content-username").html(pageParameter.userDetail.userName);
-                $("label.copy-label").html(pageParameter.userDetail.invitationCode);
-
-
-                // 根据当前用户的邀请码Id得到用户的代理信息
-                $.ajax({
-                    method: 'get', //get请求方式
-                    url: 'http://localhost:8000/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
-                    data: "operationType=srrogate&invitation=" + pageParameter.userDetail.invitationCode,
-                    success: function (result) {
-                        var invitationInfo = JSON.parse(result);
-                        pageParameter.invitationDetail.agencyCount = invitationInfo[0].length + invitationInfo[1].length;
-                        pageParameter.invitationDetail.oneAgency = invitationInfo[0].length;
-                        pageParameter.invitationDetail.twoAgency = invitationInfo[1].length;
-
-                        $("label.people-num").html(pageParameter.invitationDetail.agencyCount);
-                        $("label.oneAgency").html(pageParameter.invitationDetail.oneAgency);
-                        $("label.twoAgency").html(pageParameter.invitationDetail.twoAgency);
-                        $("label.myMoney").html("¥" + pageParameter.invitationDetail.myMoney);
-                        $("label.accelerate").html("仅剩" + pageParameter.invitationDetail.Accelerate + "天加速");
-                        console.log("代理信息：", invitationInfo);
+                    if (pageParameter.userDetail.isVip == "1") {
+                        $("div.order-list>div:eq(1)").addClass("dredge-show-bottom");
+                        $("div.order-list>div:eq(2)").addClass("vip-hide");
                     }
-                });
+                    $("img.content-face").attr("src", pageParameter.userDetail.faceImg);
+                    $("label.content-username").html(pageParameter.userDetail.userName);
+                    $("label.copy-label").html(pageParameter.userDetail.invitationCode);
+                }
             }
         });
+
+
+        // 根据当前用户的邀请码Id得到用户的代理信息
+        $.ajax({
+            method: 'get', //get请求方式
+            url: 'http://localhost:31024/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
+            data: "operationType=srrogate&invitation=" + pageParameter.userDetail.invitationCode,
+            success: function (result) {
+                var invitationInfo = JSON.parse(result);
+                if (invitationInfo != undefined && invitationInfo != null) {
+                    pageParameter.invitationDetail.agencyCount = invitationInfo[0].length + invitationInfo[1].length;
+                    pageParameter.invitationDetail.twoAgency = invitationInfo[0].length;
+                    pageParameter.invitationDetail.threeAgency = invitationInfo[1].length;
+
+                    $("label.people-num").html(pageParameter.invitationDetail.agencyCount);
+                    $("label.oneAgency").html(pageParameter.invitationDetail.oneAgency);
+                    $("label.twoAgency").html(pageParameter.invitationDetail.twoAgency);
+                    $("label.threeAgency").html(pageParameter.invitationDetail.threeAgency);
+                    $("label.myMoney").html("¥" + pageParameter.invitationDetail.myMoney);
+                    $("label.accelerate").html("仅剩" + pageParameter.invitationDetail.Accelerate + "天加速");
+                }
+                console.log("代理信息：", invitationInfo);
+            }
+        });
+
+        // 根据当前用户id获取提现记录
+        $.ajax({
+            method: 'get', //get请求方式
+            url: 'http://localhost:31024/Provider/personalCenter.ashx/ProcessRequest',   //请求地址
+            data: "operationType=record&userId=" + pageParameter.userDetail.userId,
+            success: function (result) {
+                var record = JSON.parse(result);
+                console.log("提现记录：", record);
+            }
+        });
+
 
         //绑定菜单集合
         var $menuListHtml = "";

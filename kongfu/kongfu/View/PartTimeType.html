@@ -57,7 +57,7 @@
 
         <!--分类-->
         <div class="w75" style="overflow:auto;">
-            <a href="PartTimeJob.html">
+            <a href="PartTimeJob.html" onclick="setClickType('')">
                 <div class="w31 h40 fl mt2 ml4">
                     <div class="w31 h31 fl radius15">
                         <img src="../image/type.jpg" class="w31 h31" />
@@ -66,20 +66,32 @@
                     </div>
                 </div>
             </a>
-            <a href="PartTimeJob.html">
-                <div class="w31 h40 fl mt2 ml4">
-                    <div class="w31 h31 fl radius15">
-                        <img src="../image/type.jpg" class="w31 h31" />
-                        <p class="t-l w31 mt1 f32">兼职类型</p>
-                        <p class="t-l w31 f28 color5">2018-04-02更新</p>
-                    </div>
-                </div>
-            </a>
-            <a href="PartTimeJob.html">
+
+            <a href="PartTimeJob.html" onclick="setClickType(2)">
                 <div class="w31 h40 fl mt2 ml4">
                     <div class="w31 h31 fl radius15">
                         <img src="../image/type.jpg" class="w31 h31" />
                         <p class="t-l w31 mt1 f32">网赚</p>
+                        <p class="t-l w31 f28 color5">2018-04-02更新</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="PartTimeJob.html" onclick="setClickType(1)">
+                <div class="w31 h40 fl mt2 ml4">
+                    <div class="w31 h31 fl radius15">
+                        <img src="../image/type.jpg" class="w31 h31" />
+                        <p class="t-l w31 mt1 f32">兼职</p>
+                        <p class="t-l w31 f28 color5">2018-04-02更新</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="PartTimeJob.html" onclick="setClickType(0)">
+                <div class="w31 h40 fl mt2 ml4">
+                    <div class="w31 h31 fl radius15">
+                        <img src="../image/type.jpg" class="w31 h31" />
+                        <p class="t-l w31 mt1 f32">全职</p>
                         <p class="t-l w31 f28 color5">2018-04-02更新</p>
                     </div>
                 </div>
@@ -112,5 +124,12 @@
         </div>
 
     </div>
+
+    <script>
+        function setClickType(a) {
+            localStorage.setItem("type", a);
+        }
+
+    </script>
 </body>
 </html>

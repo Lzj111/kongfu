@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/OA/OA.Master" AutoEventWireup="true" CodeBehind="Information.aspx.cs" Inherits="kongfu.View.OA.Information" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style type="text/css">
-
     </style>
     <div class="col-xs-2">
         <div class="tile">
@@ -13,8 +13,8 @@
             <a href="Revised.aspx" class="btn btn-primary btn-large btn-block" id="id">添加数据</a>
         </div>
     </div>
-    <div class="col-xs-10" style="font-size:12px;">
-        <asp:Repeater runat="server" ID="rep">
+    <div class="col-xs-10" style="font-size: 12px;">
+        <asp:Repeater runat="server" ID="rep" OnItemDataBound="rep_ItemDataBound" OnItemCommand="Repeater_item_ItemCommand">
             <HeaderTemplate>
                 <table class="table table-striped table-hover" style="border: 2px solid #f1f1f1;">
                     <thead>
@@ -84,10 +84,11 @@
                             <%#Eval("Job_Condition") %>
                         </th>
                         <th id="Modify" runat="server">
-                            <a class="btn btn-large btn-primary" style="padding:3px;font-size:12px;">修改</a>
+                            <a class="btn btn-large btn-primary" style="padding: 3px; font-size: 12px;">修改</a>
                         </th>
                         <th id="delete" runat="server">
-                            <a class="btn btn-large btn-primary" style="padding:3px;font-size:12px;">删除</a>
+                            <%--<a class="btn btn-large btn-primary" style="padding: 3px; font-size: 12px;" onclick="del()">删除</a>--%>
+                            <asp:LinkButton ID="del" runat="server" style="padding: 3px; font-size: 12px;" CommandArgument='<%# Eval("Job_Id") %>' CommandName="del" Text="删除" Class="btn btn-large btn-primary"></asp:LinkButton>
                         </th>
                     </tr>
                 </tbody>

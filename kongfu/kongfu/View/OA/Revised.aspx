@@ -151,33 +151,70 @@
         function upload() {
             //表格内的数据带html标签
             let table = quill.container.firstChild.innerHTML;
+
+
             //获取标题的值
             var title = $("#title").val();
+            if (document.getElementById("title").value == '') {
+                alert("请输入标题！");
+                return false;
+            }
             //获取金额的值
             var money = $("#money").val();
+            if (document.getElementById("money").value == '') {
+                alert("请输入金额！");
+                return false;
+            }
             //获取类型的值
             var select = $("#select option:selected").val();
+
             //获取结算方式
             var method = $("#method").val();
+            if (document.getElementById("method").value == '') {
+                alert("请输入结算方式！");
+                return false;
+            }
             //获取地区
             var address = $("#address").val();
+            if (document.getElementById("address").value == '') {
+                alert("请输入地区！");
+                return false;
+            }
             //获取人数
             var num = $("#num").val();
+            if (document.getElementById("num").value == '') {
+                alert("请输入人数！");
+                return false;
+            }
             //获取启止日期
             var startdate = $("#startdate").val();
+            if (document.getElementById("startdate").value == '') {
+                alert("请输入开始时间！");
+                return false;
+            }
             //获取工作时间
             var workdate = $("#workdate").val();
+            if (document.getElementById("workdate").value == '') {
+                alert("请输入工作时间！");
+                return false;
+            }
             //获取条件限制
             var condition = $("#condition").val();
+            if (document.getElementById("condition").value == '') {
+                alert("请输入条件限制！");
+                return false;
+            }
+
+            
 
             $.ajax({
                 type: "POST",
-                url: "../../Ajax/OA/Oa.ashx",
+                url: "../../Ajax/OA/Oacontrol.ashx",
                 data: { title: title, money: money, select: select, method: method, address: address, num: num, startdate: startdate, workdate: workdate, condition: condition, table: table },
                 dataType: "json",
                 success: function (data) {
                     //$('#resText').empty();   //清空resText里面的所有内容
-
+                    alert("添加成功");
                 }
             });
 

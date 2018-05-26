@@ -13,6 +13,11 @@ namespace kongfu.View.OA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            select();
+        }
+
+        private void select()
+        {
             string con = "server=39.108.219.12;database=kongfu;uid=sa;pwd=juzixy.888";
             DbHelperSQL.connectionString = con;
             string sql = "SELECT  a.[Job_Id],a.[User_Id],a.[Wx_Id],a.[Job_Title],a.[Job_Type],a.[Job_Money],a.[Job_Settlement],a.[Job_Address],a.[Job_Time],a.[Job_PeopleNum],a.[Job_BrowseNum],a.[Job_StartDate],a.[Job_WorkDate],a.[Job_Condition],b.Dict_Item_Name  FROM [kongfu].[dbo].[Job] as a left join [dbo].[Dict_Item] as b on a.Job_Address = b.Dict_Item_Value";
@@ -26,7 +31,7 @@ namespace kongfu.View.OA
                 {
 
                 }
-                else if(type=="0")
+                else if (type == "0")
                 {
                     ds.Tables[0].Rows[i]["types"] = "全职";
                 }
@@ -42,6 +47,23 @@ namespace kongfu.View.OA
             DataTable dt = ds.Tables[0];
             rep.DataSource = ds;
             rep.DataBind();
+        }
+
+
+        protected void Repeater_item_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "del")
+            {
+                int id = Convert.ToInt32(e.CommandArgument.ToString());
+                string sql = "DELETE FROM [dbo].[Job] WHERE [Job_Id]="+id;
+                DataSet ds = DbHelperSQL.Query(sql);
+                Response.Write(" < script language=javascript>window.location.href=document.URL; < /script>");
+            }
+        }
+
+        protected void rep_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+
         }
     }
 }

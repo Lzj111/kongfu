@@ -44,35 +44,36 @@
         <!--兼职详情-->
         <div class="w71 m2" style="overflow:auto;">
             <div class="w71 h6">
-                <h1 class="t-l col-9 f32 ml2 mt1">招聘产品推广代理</h1>
+                <input type="hidden" name="jobId" id="jobId" />
+                <h1 class="t-l col-9 f32 ml2 mt1" id="jobTitle">招聘产品推广代理</h1>
             </div>
             <div class="w71 h6">
-                <p class="t-l tab-label fl f28 mt1 ml2">100/天</p><p class="tab-label fl f28 mt1 ml2 color6">|</p>
-                <p class="t-l tab-label fl f28 mt1 ml2 color5">月末结算</p><p class="tab-label fl f28 mt1 ml2 color6">|</p>
-                <p class="t-l tab-label fl f28 mt1 ml2 color5">5/1</p><p class="tab-label fl f28 mt1 ml2 color6">|</p>
-                <p class="t-l tab-label fl f28 mt1 ml2 color5">5231次浏览</p>
+                <p class="t-l tab-label fl f28 mt1 ml2" id="jobMoney">100/天</p><p class="tab-label fl f28 mt1 ml2 color6">|</p>
+                <p class="t-l tab-label fl f28 mt1 ml2 color5" id="jobSettlement">月末结算</p><p class="tab-label fl f28 mt1 ml2 color6">|</p>
+                <p class="t-l tab-label fl f28 mt1 ml2 color5" id="jobTime">5/1</p><p class="tab-label fl f28 mt1 ml2 color6">|</p>
+                <p class="t-l tab-label fl f28 mt1 ml2 color5"><a id="jobBrowseNum">5231</a>次浏览</p>
             </div>
             <hr class="m2" />
             <div class="w71" style="overflow:auto;">
                 <p class="t-l tab-label fl f28 ml2 mt1 color4">招募人数：</p> 
-                <p class="t-l tab-label fl f28 ml2 mt1">2000人</p> 
+                <p class="t-l tab-label fl f28 ml2 mt1"><span id="jobPeopleNum">2000</span>人</p> 
                         <div style="clear:both;"></div>
-                <p class="t-l tab-label fl f28 ml2 mt2 color4">兼职日期：</p>
-                <p class="t-l tab-label fl f28 ml2 mt2">5/1至5/30，5/30截止</p>
+                <p class="t-l tab-label fl f28 ml2 mt2 color4">工作日期：</p>
+                <p class="t-l tab-label fl f28 ml2 mt2" id="jobStartDate">5/1至5/30，5/30截止</p>
                         <div style="clear:both;"></div>
-                <p class="t-l tab-label fl f28 ml2 mt2 color4">兼职时段：</p>
-                <p class="t-l tab-label fl f28 ml2 mt2">时段不限，任务完成即可</p>
+                <p class="t-l tab-label fl f28 ml2 mt2 color4">工作时段：</p>
+                <p class="t-l tab-label fl f28 ml2 mt2" id="jobWorkDate">时段不限，任务完成即可</p>
                         <div style="clear:both;"></div>
                 <p class="t-l tab-label fl f28 ml2 mt2 color4">限制条件：</p>
-                <p class="t-l tab-label fl f28 ml2 mt2">18岁以上</p>
+                <p class="t-l tab-label fl f28 ml2 mt2" id="jobCondition">18岁以上</p>
             </div>
             <div class="w71 h10 mt2 bg-color6">
                 <p class="t-l tab-label fl f28 ml2 mt3 color4">集合地点：</p>
-                <p class="t-l tab-label fl f28 ml2 mt3">地点自由</p>
-                <a href="#" class="t-l tab-label fr f28 mt3 mr3 color5">公交路线></a>
+                <p class="t-l tab-label fl f28 ml2 mt3" id="jobVenue">地点自由</p>
             </div>
             <div class="w71" style="overflow:auto;">
                 <p class="t-l tab-label f28 ml2 mt2 color4">兼职描述</p>
+                <div id="jobContent"></div>
                 <p class="t-l tab-label f28 ml2 mt2">招聘全网产品推广代理</p>
                 <p class="t-l tab-label f28 ml2 mt2">【招聘对象】</p>
                 <p class="t-l tab-label f28 ml2 mt2">1.高中以下勿扰</p>
@@ -127,6 +128,25 @@
                     layer.close(index);
                 }
             });
+        })
+        $.ajax({
+            url: "../partTimeJob/GetJobInfo.ashx?jobId=" + localStorage.getItem("jobId"),
+            type: "get",
+            success: function (data) {
+                //alert(data);
+                var dt = JSON.parse(data);
+                $("#jobId").val(dt.JobId);
+                $("#jobTitle").text(dt.JobTitle);
+                $("#jobMoney").text(dt.JobMoney);
+                $("#jobSettlement").text(dt.JobSettlement);
+                $("#jobTime").text(dt.jobTime);
+                $("#jobBrowseNum").text(dt.JobBrowseNum);
+                $("#jobPeopleNum").text(dt.JobPeopleNum);
+                $("#jobStartDate").text(dt.JobStartDate);
+                $("#jobWorkDate").text(dt.JobWorkDate);
+                $("#jobCondition").text(dt.JobCondition);
+                $("#jobContent").html(dt.JobContent);
+            }
         })
     </script>
 </body>

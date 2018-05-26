@@ -15,15 +15,15 @@ $.ajax({
         alert(XMLHttpRequest.status + "" + XMLHttpRequest.readyState + "" + textStatus);
     }
 });
-//$.ajax({
-//    url: "../partTimeJob/PartTimeCondition.ashx",
-//    type: "Post",
-//    success: function (data) {
-//        //alert(data);
-//        var conditionArr = JSON.parse(data);
-//        //ConditionSelect(conditionArr);
-//    }
-//});
+$.ajax({
+    url: "../partTimeJob/PartTimeCondition.ashx",
+    type: "Post",
+    success: function (data) {
+        //alert(data);
+        var conditionArr = JSON.parse(data);
+        //ConditionSelect(conditionArr);
+    }
+});
 jobListLoad("","");
 function jobListLoad(a, c) {
     $.ajax({
@@ -33,16 +33,15 @@ function jobListLoad(a, c) {
             //alert(data);
             var jobArr = JSON.parse(data);
             //var jobHtml = " ";
-            var divList = $("#jobList") ;
+            var divList = $("#jobList");
             var start = 0;
 
-            load(start, 2, jobArr);
-            //window.onscroll = function () {
-            //    if (window.scrollHeight - window.scrollTop - 90 < 30) {
-            //        load(start, 2, jobArr);
-            //        start += 2;
-            //    }
-            //}
+            divList.onscroll = function () {
+                if (divList.scrollHeight - divList.scrollTop - 90 < 30) {
+                    load(start, 2, jobArr);
+                    start += 2;
+                }
+            }
 
             //for (var i = 0; i < jobArr.length; i++) {
             //    //alert(jobArr[i].JobId + "  " + jobArr[i].JobTitle + "  " + jobArr[i].JobMoney);
@@ -58,14 +57,13 @@ function jobListLoad(a, c) {
         }
     });
 }
-function load(start, num, jobArr) {
-    var jobHtml = "";
-    //if (start + num > arr.length) { return; }
+function load(start, num, arr) {
+    if (start + num > arr.length) { return; }
     for (var i = 0; i < jobArr.length; i++) {
         //alert(jobArr[i].JobId + "  " + jobArr[i].JobTitle + "  " + jobArr[i].JobMoney);
-        jobHtml += "<a href='javascript:void(0);' onclick='getJobInfo(" + jobArr[i].JobId + ")'><div class='w75 t-c h15 f28 p2 radio' style='border-bottom:0.5px solid #DDDDDD;'>";
+        jobHtml += "<a href='javascript:void(0);' onclick='getJobInfo(" + jobArr[i].JobId + ")'><div class='w75 t-c h20 f28 p2 radio' style='border-bottom:0.5px solid #DDDDDD;'>";
         jobHtml += "<input class='jobId' name='jobId' type='hidden' value='" + jobArr[i].JobId + "'/>";
-        jobHtml += "<h1 id='jobTitle' class='t-l col-10 f32 ml3 color2' style='font-weight:bold;'>" + jobArr[i].JobTitle + "</h1>";
+        jobHtml += "<h1 id='jobTitle' class='t-l col-10 f32 mt3 ml3 color2' style='font-weight:bold;'>" + jobArr[i].JobTitle + "</h1>";
         jobHtml += "<p class='t-l col-8 f28 mt2 ml3'><b class='f32 color-danger'>" + jobArr[i].JobMoney + "</b></p>";
         jobHtml += "<a class='t-r fr col-2 f28 mr1 '>查看</a>";
         jobHtml += "</div></a>";
